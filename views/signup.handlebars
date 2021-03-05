@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/signup.css">
+
+<div class="container-fluid">
+    <div class="card mx-auto col-md-4 mt-5">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-6 d-flex flex-row">
+                            <button id="login" class="btn btn-outline-dark">
+                                <h5 class="card-title">Login</h5>
+                            </button>
+                    </div>
+                    <div class="col-6 d-flex flex-row-reverse">
+                        <button id="signup" type="submit" class="btn btn-outline-dark">
+                            <h5 class="card-title">Signup</h5>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <label class="card-text mx-auto row mt-3" for="user_name">username</label>
+                    <input type="text" id="user_name" class="form-control mt-2" autocomplete="user_name" />
+                    <label class="card-text mx-auto row mt-3" for="password">password</label>
+                    <input type="password" id="password" class="form-control mt-2" autocomplete="password" placeholder="minimum 8 characters" />
+                    <label class="card-text mx-auto row mt-3" for="password_conf">confirm password</label>
+                    <input type="password" id="password_conf" class="form-control mt-2" autocomplete="password" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="/js/signup.js"></script>

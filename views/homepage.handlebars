@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/css/homepage.css">
+<div id="homepage">
+    <div id="newDiv" class="container-fluid">
+        {{#if login}}
+        {{#each mappedPosts as |post|}}
+        <div class="card mx-auto col-md-6 mt-5 bg-dark">
+            <div class="card-body">
+                <div class="d-flex justify-content-between card-title mb-3">
+                    <h5 class="text-light">{{post.title}}</h5>
+                    <p class="text-light">{{post.user.user_name}}</p>
+                    <p class="text-light">{{formatDate post.date}}</p>
+                </div>
+                <p class="mb-3 card-text text-white">{{post.content}}</p>
+            </div>
+            <div id="post-{{post.id}}">
+                {{#each post.comments as |comment|}}
+                <div class="mx-2 bg-secondary">
+                    <div class="d-flex justify-content-between card-title mb-3">
+                        <p class="text-light">Posted by: {{comment.user.user_name}}</p>
+                        <p class="text-light">{{formatDate comment.date}}</p>
+                    </div>
+                    <p class="mb-2 card-text text-white">{{comment.content}}</p>
+                </div>
+                {{/each}}
+                <div class="mb-2 text-center">
+                    <button data-postid="{{post.id}}" class="btn btn-info text-center add-comment">Add Comment</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <footer class="footer">
+            <div class="text-center">
+                <button id="button" type="button" data-state="add" class="btn btn-info">+ New Post</button>
+            </div>
+        </footer>
+        {{/if}}
+        {{#unless login}}
+        {{#each mappedPosts as |post|}}
+        <div class="card mx-auto col-md-6 mt-5 bg-dark">
+            <div class="card-body">
+                <div class="d-flex justify-content-between card-title mb-3">
+                    <h5 class="text-light">{{post.title}}</h5>
+                    <p class="text-light">{{post.user.user_name}}</p>
+                    <p class="text-light">{{formatDate post.date}}</p>
+                </div>
+                <p class="mb-3 card-text text-white">{{post.content}}</p>
+            </div>
+            <div id="post-{{post.id}}">
+                {{#each post.comments as |comment|}}
+                <div class="mx-2 bg-secondary">
+                    <div class="d-flex justify-content-between card-title mb-3">
+                        <p class="text-light">Posted by: {{comment.user.user_name}}</p>
+                        <p class="text-light">{{formatDate comment.date}}</p>
+                    </div>
+                    <p class="mb-2 card-text text-white">{{comment.content}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+        {{/unless}}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<script src="/js/homepage.js"></script>
